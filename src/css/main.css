@@ -1,0 +1,77 @@
+body {
+  background-color: #fffcf9;
+  font-family: sans-serif;
+  padding: 20px 50px;
+}
+
+.movies  {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieContainer {
+  display: flex;
+  width: 400px;
+  height: 150px;
+  border: 1px solid #bdbaba;
+  padding: 20px;
+  margin: 20px;
+}
+
+.movieContainer img {
+  width: 110px;
+  align-self: center;
+}
+
+.movieContainer ul {
+  list-style-type: none;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.movieContainer button {
+  align-self: center;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ce5f5f;
+  border: none;
+  color: white;
+}
+
+#addMovie {
+  padding: 20px;
+}
+
+#addMovie .row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#addMovie .movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#addMovie input {
+  height: 30px;
+}
+
+#addMovie button {
+  align-self: center;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #4a8660;
+  border: none;
+  color: white;
+}
+
+#moviesList {
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+	flex-wrap: wrap;
+  justify-content: space-between;
+}
