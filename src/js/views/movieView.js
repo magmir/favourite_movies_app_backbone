@@ -5,6 +5,17 @@ var MovieView = Backbone.View.extend({
   initialize: function(options) {
     if (!(options && options.model))
       throw new Error("model is not specified");
+
+    this.model.on('change', this.render, this);
+  },
+
+  events: {
+  'click #delete': 'onClickDelete',
+  },
+
+  onClickDelete: function() {
+    console.log('delete');
+    // this.model.remove();
   },
 
   render: function() {

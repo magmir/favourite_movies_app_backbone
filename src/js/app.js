@@ -7,5 +7,5 @@ $(document).ready(function(){
       { title: 'Intouchables', director: 'Olivier Nakache, Eric Toledano', premiere: '2012', keywords: 'Drama, Comedy', poster:'img/intouchables.jpg' }
   ];
 
-  new MoviesView({model: movies});
+  var moviesView = new MoviesView({model: movies});
 });

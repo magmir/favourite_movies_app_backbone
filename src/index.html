@@ -6,17 +6,6 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-      <script id="movieTemplate" type="text/template">
-        <img src="{{poster}}"/>
-        <ul>
-            <li>{{title}}</li>
-            <li>{{director}}</li>
-            <li>{{releaseDate}}</li>
-            <li>{{keywords}}</li>
-        </ul>
-
-        <button class="delete">Delete</button>
-      </script>
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       <script src="js/lib/underscore-min.js"></script>
@@ -25,13 +14,13 @@
 
       <script src="js/models/movie.js"></script>
       <script src="js/collections/movies.js"></script>
-      <script src="js/views/movie.js"></script>
-      <script src="js/views/movies.js"></script>
+      <script src="js/views/movieView.js"></script>
+      <script src="js/views/moviesView.js"></script>
 
       <script src="js/app.js"></script>
 
       <div id="movies">
-        <form id="addMovie" action="#">
+        <form id="addMovie">
           <div class="movies">
             <div class="row">
               <div><span>Poster: </span><input id="poster" type="file" /></div>
@@ -39,14 +28,24 @@
               <div><span>Director: </span><input id="director" type="text" /></div>
             </div>
             <div class="row">
-              <div><span for="premiere">Premiere date: </span><input id="premiereDate" type="text" /></div>
+              <div><span for="premiere">Premiere date: </span><input id="premiere" type="text" /></div>
               <div><span for="keywords">Keywords: </span><input id="keywords" type="text" /></div>
               <button id="add">Add</button>
             </div>
           </div>
         </form>
         <div id="moviesList"></div>
-
       </div>
+
+        <script id="movieTemplate" type="text/template">
+          <img src="{{poster}}"/>
+          <ul>
+              <li>{{title}}</li>
+              <li>{{director}}</li>
+              <li>{{premiere}}</li>
+              <li>{{keywords}}</li>
+          </ul>
+          <button id="delete">Delete</button>
+        </script>
     </body>
 </html>
