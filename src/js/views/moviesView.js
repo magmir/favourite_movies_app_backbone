@@ -1,56 +1,59 @@
+/* eslint-disable backbone/no-view-onoff-binding,backbone/render-return */
 var MoviesView = Backbone.View.extend({
-  el: '#movies',
+	el: '#movies',
 
-  initialize: function(options) {
-    if (!(options && options.model))
-      throw new Error('model is not specified');
+	initialize: function(options) {
+		if (!(options && options.model))
+			throw new Error('model is not specified');
 
-    this.collection = new Movies(options.model);
+		this.collection = new Movies(options.model);
 
-    this.render();
+		console.log('options model', options.model);
 
-    this.collection.on('add', this.onAddMovie, this);
-    this.collection.on('remove', this.onRemoveItem, this);
-  },
+		this.render();
 
-  onAddMovie: function(movie) {
-    var view = new MovieView({model: movie});
-    this.$('#moviesList').append(view.render().$el);
-  },
+		this.collection.on('add', this.onAddMovie, this);
+		this.collection.on('remove', this.onRemoveItem, this);
+	},
 
-  onRemoveItem: function(item) {
-    console.log('collection on remove');
-  },
+	onAddMovie: function(movie) {
+		var view = new MovieView({model: movie});
+		this.$('#moviesList').append(view.render().$el);
+	},
 
-  events: {
-  'click #add': 'onClickAdd',
-  },
+	onRemoveItem: function(item) {
+		console.log('collection on remove');
+	},
 
-  onClickAdd: function(e){
-    var $form = this.$("addMovie");
+	events: {
+		'click #add': 'onClickAdd',
+	},
 
-    var formData = {};
+	onClickAdd: function(e){
+		var $form = this.$('addMovie');
 
-    $('#addMovie').find('.row div').children('input').each(function(i, el) {
-      if($(el).val() !== '') {
-        formData[el.id] = $(el).val();
-        $(el).val('');
-      }
-    });
+		var formData = {};
 
-    console.log('formData', formData);
+		$('#addMovie').find('.row div').children('input').each(function(i, el) {
+			if($(el).val() !== '') {
+				formData[el.id] = $(el).val();
+				$(el).val('');
+			}
+		});
 
-    this.collection.add(new Movie(formData));
-  },
+		console.log('formData', formData);
 
-  render: function() {
-    this.collection.each(function(item) {
-        this.renderMovie(item);
-    }, this);
-  },
+		this.collection.add(new Movie(formData));
+	},
 
-  renderMovie: function(item) {
-    var movieView = new MovieView({model: item});
-    this.$('#moviesList').append(movieView.render().el);
-  }
+	render: function() {
+		this.collection.each(function(item) {
+			this.renderMovie(item);
+		}, this);
+	},
+
+	renderMovie: function(item) {
+		var movieView = new MovieView({model: item});
+		this.$('#moviesList').append(movieView.render().el);
+	}
 });
