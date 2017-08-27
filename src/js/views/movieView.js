@@ -4,7 +4,6 @@ var MovieView = Backbone.View.extend({
 	className: 'movieContainer',
 
 	initialize: function(options) {
-		console.log('options', options);
 		if (!(options && options.model))
 			throw new Error('model is not specified');
 

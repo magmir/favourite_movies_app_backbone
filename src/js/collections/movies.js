@@ -1,3 +1,3 @@
 var Movies = Backbone.Collection.extend({
-    model: Movie,
+	model: Movie
 });

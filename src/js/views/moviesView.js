@@ -41,8 +41,6 @@ var MoviesView = Backbone.View.extend({
 			}
 		});
 
-		console.log('formData', formData);
-
 		this.collection.add(new Movie(formData));
 	},
 
